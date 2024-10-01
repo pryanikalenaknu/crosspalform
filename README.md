@@ -1,2 +1,8 @@
-Ковтун Олена ІПЗ-32 
-cross-platform repo github
+## .Net Version
+
+- .NET SDK 8.0 or higher.
+
+## Run
+```bash
+msbuild build.proj
+```
