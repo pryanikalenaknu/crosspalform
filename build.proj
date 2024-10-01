@@ -1,0 +1,18 @@
+<Project DefaultTargets="Deploy" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Target Name="BuildSolution">
+    <MSBuild Projects="CrossPlatform-A.sln" Targets="Build" />
+  </Target>
+
+  <Target Name="Run" DependsOnTargets="BuildSolution">
+   <Exec Command="dotnet run --project Lab1/Lab1.csproj" />
+   <Exec Command="dotnet run --project Lab2/Lab2.csproj" />
+  </Target>
+
+  <Target Name="Test" DependsOnTargets="BuildSolution">
+	  <Exec Command="dotnet test Tests/Tests.csproj" />
+  </Target>
+
+  <Target Name="Deploy" DependsOnTargets="Test;Run" />
+  
+</Project>
