@@ -1,0 +1,26 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Solution Condition="'$(Solution)' == ''"></Solution>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(Solution)' != ''">
+    <ProjectMainFile Include="$(Solution)\$(Solution).csproj" />
+    <Tests Include="Tests\Tests.csproj" />
+    <Domain Include="Domain\Domain.csproj" />
+  </ItemGroup>
+
+  <Target Name="Build">
+    <MSBuild Projects="@(Domain);@(ProjectMainFile);@(Tests)" Targets="Restore;Build" />
+  </Target>
+
+  <Target Name="Test" DependsOnTargets="Build">
+    <Exec Command="dotnet test @(Tests) --logger &quot;console;verbosity=detailed&quot;" />
+  </Target>
+
+  <Target Name="Run" DependsOnTargets="Build">
+    <Exec Command="dotnet run --project &quot;@(ProjectMainFile)&quot;" />
+  </Target>
+  
+</Project>
