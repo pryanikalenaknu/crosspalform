@@ -1,0 +1,27 @@
+@model Lab5.Models.UserProfileModel
+
+<div class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
+    <div class="card shadow-sm p-4" style="width: 400px;">
+        <h3 class="card-title text-center mb-4">Профіль користувача</h3>
+
+        <div class="mb-3">
+            <label for="Username" class="form-label">Ім'я користувача:</label>
+            <p class="form-control-plaintext"><b>@Model.UserName</b></p>
+        </div>
+
+        <div class="mb-3">
+            <label for="FullName" class="form-label">ФІО:</label>
+            <p class="form-control-plaintext"><b>@Model.FullUserName</b></p>
+        </div>
+
+        <div class="mb-3">
+            <label for="Phone" class="form-label">Телефон:</label>
+            <p class="form-control-plaintext"><b>@Model.Phone</b></p>
+        </div>
+
+        <div class="mb-3">
+            <label for="Email" class="form-label">Електронна пошта:</label>
+            <p class="form-control-plaintext"><b>@Model.Email</b></p>
+        </div>
+    </div>
+</div>

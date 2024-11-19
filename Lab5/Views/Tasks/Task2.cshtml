@@ -1,0 +1,36 @@
+@model Lab5.Models.TaskModel
+
+@{
+ViewData["Title"] = "Завдання 2";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="p-4 border rounded bg-light shadow">
+                <h3 class="text-center mb-4">Завдання 2</h3>
+                <p class="text-center">
+                    Дана числова послідовність, потрібно знайти довжину найбільшої підпослідовності, що зростає.
+                    У першому рядку вхідного файлу INPUT.TXT записано число N - довжина послідовності (1 ≤ N ≤ 1000). У другому рядку записана сама послідовність (через пропуск). Числа послідовності - цілі числа, що не перевищують 10000 по модулю.
+                    У вихідний файл OUTPUT.TXT потрібно вивести найбільшу довжину підпослідовності, що зростає.
+                </p>
+
+                <form asp-action="Task2" method="post">
+                    <div class="form-group">
+                        <label for="InputData" class="form-label">Input Data</label>
+                        <textarea id="InputData" name="InputData" class="form-control" rows="6" placeholder="Enter your data here">@Model.InputData</textarea>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label for="OutputData" class="form-label">Output Data</label>
+                        <textarea id="OutputData" name="OutputData" class="form-control" rows="6" readonly>@Model.OutputData</textarea>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary w-100">Виконати</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

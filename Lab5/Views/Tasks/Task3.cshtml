@@ -1,0 +1,38 @@
+@model Lab5.Models.TaskModel
+
+@{
+ViewData["Title"] = "Завдання 3";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="p-4 border rounded bg-light shadow">
+                <h3 class="text-center mb-4">Завдання 3</h3>
+                <p class="text-center">
+                    На бенкет було запрошено N Дуже Важливих Персон (ОВП). Було поставлено 2 столи. Столи досить великі, щоб усі відвідувачі банкету могли сісти за будь-який із них. Проблема полягає в тому, що деякі ОВП не ладнають один з одним і не можуть сидіти за одним столом. Вас попросили визначити, чи можна всіх ОВП розсадити за двома столами.
+                    Вхідні дані
+                    У першому рядку вхідного файлу INPUT.TXT дано два цілих числа: N і M (0 ≤ N, M ≤ 100), де N – кількість ОВП, а M – кількість пар ОВП, які не можуть сидіти за одним столом. У наступних M рядках записано по 2 числа – пари ОВП, які не можуть сидіти за одним столом.
+                    Вихідні дані
+                    Якщо спосіб розсадити ОВП існує, то вихідний файл OUTPUT.TXT виведіть YES і NO в іншому випадку.
+                </p>
+
+                <form asp-action="Task3" method="post">
+                    <div class="form-group">
+                        <label for="InputData" class="form-label">Input Data</label>
+                        <textarea id="InputData" name="InputData" class="form-control" rows="6" placeholder="Enter your data here">@Model.InputData</textarea>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label for="OutputData" class="form-label">Output Data</label>
+                        <textarea id="OutputData" name="OutputData" class="form-control" rows="6" readonly>@Model.OutputData</textarea>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary w-100">Виконати</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
