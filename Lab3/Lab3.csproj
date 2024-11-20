@@ -5,10 +5,15 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RestoreSources>$(RestoreSources);..\Lab3.Domain\nupkg</RestoreSources>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Domain\Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="OKovtunL3" Version="1.0.0" />
     </ItemGroup>
 
 </Project>
