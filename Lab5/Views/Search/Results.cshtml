@@ -1,0 +1,25 @@
+@model IEnumerable<Lab6.Model.SearchResponse>
+
+<table>
+    <thead>
+    <tr>
+        <th>Order ID</th>
+        <th>First Product Name</th>
+        <th>Order Date</th>
+        <th>Status</th>
+        <th>Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var order in Model)
+    {
+        <tr>
+            <td>@order.OrderId</td>
+            <td>@order.FirstProductName</td>
+            <td>@order.OrderDate.ToShortDateString()</td>
+            <td>@order.OrderStatus</td>
+            <td>@order.OrderDetails</td>
+        </tr>
+    }
+    </tbody>
+</table>

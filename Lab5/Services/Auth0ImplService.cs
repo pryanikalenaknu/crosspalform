@@ -142,7 +142,7 @@ public class Auth0ImplService : IAuthService
             new ClaimsPrincipal(claimsIdentity), authProperties);
     }
     
-    private async Task<string?> ApiAccessTokenGenerate()
+    public async Task<string?> ApiAccessTokenGenerate()
     {
         var content = new StringContent(JsonSerializer.Serialize(new
         {

@@ -1,20 +1,20 @@
-namespace Lab5;
+using Lab6.Enums;
+
+namespace Lab6;
 
 public class ApplicationContext
 {
 
     public static string? Domain;
-    public static string? Id;
-    public static string? Secret;
     public static string? Audience;
-    public static string? ApiHost;
+    public static DBType DBType;
+    public static string? ConnectionString;
     
     public static void InitConfiguration(IConfiguration configuration)
     {
-        Id = configuration["AuthApi:Id"];
-        Secret = configuration["AuthApi:Secret"];
         Audience = configuration["AuthApi:Audience"];
         Domain = configuration["AuthApi:Domain"];
-        ApiHost = configuration["ApiHost"];
+        Enum.TryParse(configuration["DBType"], out DBType);
+        ConnectionString = configuration["ConnectionString"];
     }
 }

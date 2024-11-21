@@ -1,0 +1,23 @@
+@model SearchModel
+
+<h2>Search</h2>
+<form method="post" action="@Url.Action("Results")">
+    <label>Date Range:</label>
+    <input type="date" name="StartDate" />
+    <input type="date" name="EndDate" />
+    <br />
+
+    <label>ProductIds:</label>
+    <input type="text" name="ProductIds"/>
+    <br />
+
+    <label>Order Start:</label>
+    <input type="text" name="OrderStart" />
+    <br />
+
+    <label>Order End:</label>
+    <input type="text" name="OrderEnd" />
+    <br />
+
+    <button type="submit">Search</button>
+</form>

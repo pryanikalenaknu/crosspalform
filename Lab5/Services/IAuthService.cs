@@ -9,5 +9,7 @@ public interface IAuthService
     Task<UserProfileModel> LoginAsync(UserLoginModel model, HttpContext context);
 
     Task<bool> LogoutAsync(HttpContext context);
-    
+
+    Task<string?> ApiAccessTokenGenerate();
+
 }

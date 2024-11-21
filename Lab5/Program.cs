@@ -10,6 +10,9 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient<Auth0ImplService>();
 builder.Services.AddScoped<IAuthService, Auth0ImplService>();
+builder.Services.AddHttpClient<Lab6CustomApiService>();
+builder.Services.AddScoped<ICustomApiService, Lab6CustomApiService>();
+
 builder.Services.AddAuthentication(options =>
     {
         options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;

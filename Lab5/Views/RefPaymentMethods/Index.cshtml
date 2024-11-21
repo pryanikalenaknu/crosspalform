@@ -1,0 +1,22 @@
+@model IEnumerable<RefPaymentMethod>
+
+<h2>CustomerOrders</h2>
+<table>
+    <thead>
+    <tr>
+        <th>PaymentMethodCode</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var customerOrder in Model)
+    {
+        <tr>
+            <td>@customerOrder.PaymentMethodCode</td>
+            <td>@customerOrder.PaymentMethodDescription</td>
+            <td><a href="@Url.Action("Details", new { id = customerOrder.PaymentMethodCode })">Details</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

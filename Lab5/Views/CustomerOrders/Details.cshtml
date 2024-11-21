@@ -1,0 +1,7 @@
+@model CustomerOrder
+
+<h2>CustomerOrder Details</h2>
+<p>ID: @Model.OrderId</p>
+<p>CustomerId: @Model.CustomerId</p>
+<p>Date: @Model.OrderDate</p>
+<a href="@Url.Action("Index")">Back to list</a>

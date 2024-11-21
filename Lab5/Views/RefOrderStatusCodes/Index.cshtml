@@ -1,0 +1,22 @@
+@model IEnumerable<RefOrderStatusCode>
+
+<h2>CustomerOrders</h2>
+<table>
+    <thead>
+    <tr>
+        <th>OrderStatusCode</th>
+        <th>OrderStatusDescription</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var customerOrder in Model)
+    {
+        <tr>
+            <td>@customerOrder.OrderStatusCode</td>
+            <td>@customerOrder.OrderStatusDescription</td>
+            <td><a href="@Url.Action("Details", new { id = customerOrder.OrderStatusCode })">Details</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
