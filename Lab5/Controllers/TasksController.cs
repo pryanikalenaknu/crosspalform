@@ -80,8 +80,8 @@ namespace Lab5.Controllers
             var N = int.Parse(firstLine[0]);
             var M = int.Parse(firstLine[1]);
 
-            List<int> firstTarget = [];
-            List<int> secondTarget = [];
+            List<int> firstTarget = new List<int>();
+            List<int> secondTarget = new List<int>();
 
             for (var i = 1; i <= M; i++)
             {
@@ -96,5 +96,44 @@ namespace Lab5.Controllers
             input.OutputData = res.ToString();
             return View(input);
         }
+        
+        
+        [HttpPost]
+        public async Task<IActionResult> ProcessTask(int task, IFormFile inputFile)
+        {
+            if (inputFile == null || inputFile.Length == 0)
+                return BadRequest("Please upload a file");
+
+            string line;
+            using (var reader = new StreamReader(inputFile.OpenReadStream()))
+            {
+                line = await reader.ReadToEndAsync();
+            }
+            
+            var taskModel = new TaskModel()
+            {
+                InputData = line
+            };
+
+            switch (task)
+            {
+                case 1:
+                    Task1(taskModel);
+                    break;
+                case 2:
+                    Task2(taskModel);
+                    break;
+                case 3:
+                    Task3(taskModel);
+                    break;
+                default:
+                    return BadRequest();
+            }
+
+            var result = new { output = taskModel.OutputData };
+            return Json(result);
+        }
+
+        
     }
 }

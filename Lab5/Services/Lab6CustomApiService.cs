@@ -59,4 +59,18 @@ public class Lab6CustomApiService(HttpClient httpClient, IAuthService service) :
 
         return res?.Result;
     }
+
+    public async Task<Product?> GetProductAsync(int id, string apiVersion = "v1")
+    {
+        var token = await GetAccessToken();
+        Console.WriteLine(token);
+        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+        var response = await httpClient.GetAsync(GetBaseUrl() + $"/api/{apiVersion}/Product");
+        response.EnsureSuccessStatusCode();
+        Console.WriteLine(await response.Content.ReadAsStringAsync());
+        var res = await response.Content.ReadFromJsonAsync<Product>();
+
+        return res;
+    }
 }

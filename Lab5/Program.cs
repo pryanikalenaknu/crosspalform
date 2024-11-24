@@ -1,6 +1,9 @@
 using Lab5;
 using Lab5.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using OpenTelemetry.Metrics;
+using OpenTelemetry.Resources;
+using OpenTelemetry.Trace;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +39,29 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddSession();
 
+builder.Services.AddOpenTelemetry()
+    .ConfigureResource(resource => resource.AddService(serviceName: "Lab8", serviceVersion: "1.0.0"))
+    .WithTracing(traceBuilder =>
+    {
+        traceBuilder
+            .AddAspNetCoreInstrumentation()
+            .AddHttpClientInstrumentation()
+            .AddZipkinExporter(options =>
+            {
+                options.Endpoint = new Uri("http://localhost:9411/api/v2/spans");
+            });
+    })
+    .WithMetrics(metricsBuilder =>
+    {
+        metricsBuilder
+            .AddAspNetCoreInstrumentation()
+            .AddRuntimeInstrumentation()
+            .AddHttpClientInstrumentation()
+            .AddMeter("Microsoft.AspNetCore.Hosting")
+            .AddMeter("Microsoft.AspNetCore.Server.Kestrel")
+            .AddPrometheusExporter();
+    });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -48,7 +74,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseOpenTelemetryPrometheusScrapingEndpoint();
 app.UseAuthentication();
 app.UseAuthorization();
 

@@ -13,4 +13,7 @@ public interface ICustomApiService
     Task<T?> GetAsync<T>(int id);
 
     Task<List<SearchResponse>?> SearchOrdersAsync(SearchModel model);
+    
+    Task<Product?> GetProductAsync(int id, string apiVersion = "v1");
+
 }

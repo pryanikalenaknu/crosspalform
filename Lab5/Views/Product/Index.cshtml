@@ -1,0 +1,19 @@
+@{
+    var v1 = ViewData["v1"] as Product;
+    var v2 = ViewData["v2"] as Product;
+}
+
+@if (v1 != null)
+{
+    <h3>Product (API v1)</h3>
+    <p>@v1.ProductId, @v1.ProductName, @v1.ProductTypeCode</p>
+}
+
+@if (v2 != null)
+{
+    <h3>Product (API v2)</h3>
+    <p>@v2.ProductId, @v2.ProductName, @v2.ProductTypeCode</p>
+
+    <h4>RefTypeCode:</h4>
+    <p>@v2.ProductType.ProductTypeCode, @v2.ProductType.ProductTypeDescription</p>
+}
