@@ -2,6 +2,8 @@ using System.Text.Json.Serialization;
 using Lab6;
 using Lab6.Data;
 using Lab6.Enums;
+using Lab6.Service;
+using Lab6.Service.Impl;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
@@ -10,6 +12,9 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddHttpClient<SalesforceService>();
+builder.Services.AddScoped<ISalesforceService, SalesforceService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -92,6 +97,7 @@ using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     context.Database.Migrate();
+    //context.Seed10X();
 }
 
 app.MapControllers();

@@ -219,4 +219,34 @@ public class ApplicationDbContext : DbContext
             }
         );
     }
+    
+    public void Seed10X()
+    {
+        const int numberOfRecords = 10000;
+        var random = new Random();
+        var customers = Customers.Select(a => a.CustomerId).ToList();
+        var statusCodes = Enumerable.Range(1, 2).ToList();
+        var paymentMethodCodes = Enumerable.Range(1, 2).ToList();
+
+        var orders = new List<CustomerOrder>();
+        for (var i = 1; i <= numberOfRecords; i++)
+        {
+            var order = new CustomerOrder()
+            {
+                OrderId = i + 3, CustomerId = customers[random.Next(customers.Count)], OrderDate = DateTime.UtcNow.AddDays(-2), OrderDetails = "Details",
+                OrderStatusCode = statusCodes[random.Next(statusCodes.Count)], PaymentMethodCode = paymentMethodCodes[random.Next(paymentMethodCodes.Count)]
+            };
+            orders.Add(order);
+
+            if (orders.Count < 1000) continue;
+            CustomerOrders.AddRange(orders);
+            SaveChanges();
+            orders.Clear();
+        }
+
+        if (orders.Count <= 0) return;
+        
+        CustomerOrders.AddRange(orders);
+        SaveChanges();
+    }
 }
