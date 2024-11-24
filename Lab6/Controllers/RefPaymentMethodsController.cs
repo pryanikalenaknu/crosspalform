@@ -11,13 +11,13 @@ namespace Lab6.Controllers;
 public class RefPaymentMethodsController(ApplicationDbContext context) : ControllerBase
 {
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<RefPaymentMethod>>> GetPaymentMethods()
+    public async Task<ActionResult<IEnumerable<RefPaymentMethod>>> Get()
     {
         return await context.RefPaymentMethods.ToListAsync();
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<RefPaymentMethod>> GetPaymentMethod(int id)
+    public async Task<ActionResult<RefPaymentMethod>> Get(int id)
     {
         var paymentMethod = await context.RefPaymentMethods.FindAsync(id);
 
@@ -27,5 +27,21 @@ public class RefPaymentMethodsController(ApplicationDbContext context) : Control
         }
 
         return paymentMethod;
+    }
+    
+    [HttpPost()]
+    public async Task<ActionResult<RefPaymentMethod>> Create(RefPaymentMethod customerOrder)
+    {
+        context.RefPaymentMethods.Add(customerOrder);
+        await context.SaveChangesAsync();
+        return CreatedAtAction(nameof(Get), new { id = customerOrder.PaymentMethodCode }, customerOrder);
+    }
+    
+    [HttpDelete()]
+    public async Task<ActionResult> Delete(int id)
+    {
+        context.RefPaymentMethods.Remove(await context.RefPaymentMethods.FindAsync(id));
+        await context.SaveChangesAsync();
+        return Ok();
     }
 }

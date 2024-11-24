@@ -16,6 +16,8 @@ public class ApplicationDbContext : DbContext
     public DbSet<Product> Products { get; set; }
     public DbSet<ProductSupplier> ProductSuppliers { get; set; }
     public DbSet<RefJobTitle> RefJobTitles { get; set; }
+    public DbSet<RefProductType> RefProductTypes { get; set; }
+
     public DbSet<RefOrderStatusCode> RefOrderStatusCodes { get; set; }
     public DbSet<RefPaymentMethod> RefPaymentMethods { get; set; }
     public DbSet<Staff> Staff { get; set; }

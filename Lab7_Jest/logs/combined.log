@@ -1,0 +1,28 @@
+2024-11-24 09:55:44 [INFO]: Starting test suite execution
+2024-11-24 09:55:44 [INFO]: Starting References API tests
+2024-11-24 09:55:44 [INFO]: Testing GET /api/RefPaymentMethods
+2024-11-24 09:55:44 [INFO]: Received {"$id":"1","$values":[{"$id":"2","paymentMethodCode":1,"paymentMethodDescription":"Card","customerOrders":null},{"$id":"3","paymentMethodCode":2,"paymentMethodDescription":"Cash","customerOrders":null}]} RefPaymentMethods
+2024-11-24 09:55:44 [INFO]: Testing GET /api/RefOrderStatusCodes
+2024-11-24 09:55:44 [INFO]: Received {"$id":"1","$values":[{"$id":"2","orderStatusCode":1,"orderStatusDescription":"Pending","customerOrders":null},{"$id":"3","orderStatusCode":2,"orderStatusDescription":"Completed","customerOrders":null}]} RefOrderStatusCodes
+2024-11-24 09:55:44 [INFO]: Testing GET /api/CustomerOrders
+2024-11-24 09:55:45 [INFO]: Received {"$id":"1","$values":[{"$id":"2","orderId":1,"orderDetails":"Details","orderDate":"2024-11-11T06:41:46.040626","customerId":1,"paymentMethodCode":2,"orderStatusCode":2,"customer":null,"paymentMethod":null,"orderStatus":null,"orderItems":null},{"$id":"3","orderId":2,"orderDetails":"Details","orderDate":"2024-11-16T06:41:46.040626","customerId":2,"paymentMethodCode":1,"orderStatusCode":1,"customer":null,"paymentMethod":null,"orderStatus":null,"orderItems":null},{"$id":"4","orderId":3,"orderDetails":"Details","orderDate":"2024-11-19T06:41:46.040627","customerId":2,"paymentMethodCode":1,"orderStatusCode":2,"customer":null,"paymentMethod":null,"orderStatus":null,"orderItems":null}]} CustomerOrders
+2024-11-24 09:55:45 [INFO]: Testing POST /api/Search/search
+2024-11-24 09:55:45 [ERROR]: Error testing POST /api/Search/search: Request failed with status code 404
+2024-11-24 09:55:45 [INFO]: Finished References API tests
+2024-11-24 09:55:45 [INFO]: Testing SQL Server connection
+2024-11-24 09:55:45 [INFO]: Successfully connected to SQLLite Server
+2024-11-24 09:55:45 [INFO]: Finished test suite execution
+2024-11-24 09:56:33 [INFO]: Starting test suite execution
+2024-11-24 09:56:33 [INFO]: Starting References API tests
+2024-11-24 09:56:33 [INFO]: Testing GET /api/RefPaymentMethods
+2024-11-24 09:56:33 [INFO]: Received {"$id":"1","$values":[{"$id":"2","paymentMethodCode":1,"paymentMethodDescription":"Card","customerOrders":null},{"$id":"3","paymentMethodCode":2,"paymentMethodDescription":"Cash","customerOrders":null}]} RefPaymentMethods
+2024-11-24 09:56:33 [INFO]: Testing GET /api/RefOrderStatusCodes
+2024-11-24 09:56:33 [INFO]: Received {"$id":"1","$values":[{"$id":"2","orderStatusCode":1,"orderStatusDescription":"Pending","customerOrders":null},{"$id":"3","orderStatusCode":2,"orderStatusDescription":"Completed","customerOrders":null}]} RefOrderStatusCodes
+2024-11-24 09:56:33 [INFO]: Testing GET /api/CustomerOrders
+2024-11-24 09:56:33 [INFO]: Received {"$id":"1","$values":[{"$id":"2","orderId":1,"orderDetails":"Details","orderDate":"2024-11-11T06:41:46.040626","customerId":1,"paymentMethodCode":2,"orderStatusCode":2,"customer":null,"paymentMethod":null,"orderStatus":null,"orderItems":null},{"$id":"3","orderId":2,"orderDetails":"Details","orderDate":"2024-11-16T06:41:46.040626","customerId":2,"paymentMethodCode":1,"orderStatusCode":1,"customer":null,"paymentMethod":null,"orderStatus":null,"orderItems":null},{"$id":"4","orderId":3,"orderDetails":"Details","orderDate":"2024-11-19T06:41:46.040627","customerId":2,"paymentMethodCode":1,"orderStatusCode":2,"customer":null,"paymentMethod":null,"orderStatus":null,"orderItems":null}]} CustomerOrders
+2024-11-24 09:56:33 [INFO]: Testing POST /api/Search/search
+2024-11-24 09:56:33 [INFO]: Received accounts: {"$id":"1","$values":[{"$id":"2","orderId":1,"orderDetails":"Details","orderDate":"2024-11-11T06:41:46.040626","customerId":1,"paymentMethodCode":2,"orderStatusCode":2,"orderStatus":"Completed","firstProductName":"Laptop"},{"$id":"3","orderId":2,"orderDetails":"Details","orderDate":"2024-11-16T06:41:46.040626","customerId":2,"paymentMethodCode":1,"orderStatusCode":1,"orderStatus":"Pending","firstProductName":"T-Shirt"},{"$id":"4","orderId":3,"orderDetails":"Details","orderDate":"2024-11-19T06:41:46.040627","customerId":2,"paymentMethodCode":1,"orderStatusCode":2,"orderStatus":"Completed","firstProductName":"T-Shirt"}]}
+2024-11-24 09:56:33 [INFO]: Finished References API tests
+2024-11-24 09:56:33 [INFO]: Testing SQL Server connection
+2024-11-24 09:56:33 [INFO]: Successfully connected to SQLLite Server
+2024-11-24 09:56:33 [INFO]: Finished test suite execution
